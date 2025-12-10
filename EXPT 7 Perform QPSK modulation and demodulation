@@ -1,0 +1,18 @@
+clc; clear; close all; 
+bit_seq = [11 00 00 11];  
+fc = 1; t = 0:0.001:1; 
+bit_seq(bit_seq == 0) = -1;  
+b_e = bit_seq(2:2:end); b_o = bit_seq(1:2:end); 
+qpsk_signal = kron(b_e, cos(2*pi*fc*t)) + kron(b_o, sin(2*pi*fc*t)); 
+figure; 
+subplot(5,1,1);  
+plot(repelem(bit_seq, length(t)), 'LineWidth', 1.5); grid on; 
+subplot(5,1,2);  
+plot(kron(b_o, sin(2*pi*fc*t)), 'b'); hold on; 
+plot(repelem(b_o, 2*length(t)), 'r--'); grid on; 
+subplot(5,1,3); plot(kron(b_e, cos(2*pi*fc*t)), 'g'); hold on; 
+plot(repelem(b_e, 2*length(t)), 'r--'); grid on; 
+subplot(5,1,4);  
+plot(qpsk_signal, 'k', 'LineWidth', 1.5); grid on; 
+subplot(5,1,5); 
+plot([-1 1 1 -1], [1 1 -1 -1], 'bo'); grid on;
