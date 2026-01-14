@@ -14,5 +14,5 @@ BER(k) = mean((sampled_signal > 0.5) ~= data);
 end 
 semilogy(SNR_dB, BER, 'b-o'); 
 grid on; 
-xlabel('SNR (dB)'); ylabel('BER'); 
+xlabel('SNR (dB)'); ylabel('Bit error ratio'); 
 title('BER vs. SNR for Rectangular Pulse Modulated Data');
