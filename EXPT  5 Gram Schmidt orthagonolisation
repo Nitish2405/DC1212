@@ -1,7 +1,7 @@
 clc;clear all;close all;
 V = [1 0 0; 1 1 1; 0 0 1]';  
 num_vectors = size(V, 2);   
-U = zeros(size(V));  
+U = zeros(size(V)); 
 E = zeros(size(V));  
 U(:,1) = V(:,1);  
 E(:,1) = U(:,1) / norm(U(:,1));  
